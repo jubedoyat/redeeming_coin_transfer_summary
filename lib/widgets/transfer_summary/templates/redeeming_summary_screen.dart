@@ -22,7 +22,7 @@ class _RedeemingSummaryScreenState extends ConsumerState<RedeemingSummaryScreen>
   String ammount = '0';
   bool isChecked = false;
 
-  final _ammountController = TextEditingController();
+  final _ammountController = TextEditingController(text: '\$0');
 
   @override
   void initState() {
@@ -60,6 +60,7 @@ class _RedeemingSummaryScreenState extends ConsumerState<RedeemingSummaryScreen>
                 inputFormatter: FilteringTextInputFormatter.digitsOnly,
                 onChanged: (value) {
                   setState(() {
+                    
                     _ammountController.text = formatPrice(int.parse(value));
                     ammount = value;
                   });
